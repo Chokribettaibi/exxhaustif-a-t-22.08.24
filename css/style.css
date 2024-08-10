@@ -89,9 +89,12 @@ button span  svg{
     color: #4d14b8;
     font-weight: bold;
 }
-.prop {
-    margin-top: 50px;
-    border: none;
+#repet {
+    position: absolute;
+    display: block;
+    color: #00ff11;
+    top: 80%;
+    left: 50%;
 }
 @keyframes gradient {
     0% {
