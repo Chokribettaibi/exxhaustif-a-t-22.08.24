@@ -67,11 +67,28 @@ let cartp3 = ['8007427003913', '8435271264882', '8718973033469',
     '8711295837265', '8682397809972', '8682397809934',
     '8693357508224', '8719202939231', '868562542108',
     '8719202641998'
-]
+];
 let cartp4 = ['5054025002155'];
-let cartp5 = ['5054025002155', '5054903675884', '6976627980077']
+let cartp5 = ['5054025002155', '5054903675884', '6976627980077',
+    '2110202322003', '8682397810107', '8699462254063'
+];
+let cartp6 = [
+    '5414883005864', '86992434448', '868237801068', '8682961000453',
+    '8682961000422', '8682961000446', '8682961000392',
+    '8682961000484', '8682961000477', '8682961000408',
+    '8682961000491', '8682961000439', '8682961000323',
+    '8682961000309', '8682961000460', '8682961000361',
+    '8682378010366', '8682378009957'
+];
+let cartp7 = [
+    '5905197265926', '8682397001079', '8682190114600',
+    '8683024013854', '8682397810107', '8682397830204',
+    '8691400020327', '8683024013694', '8698308160025',
+    '3256390151991'
+];
+let cartp8 = ['86940427993'];
 
-let Palet3 = cartp1.concat(cartp2,cartp2,cartp3,cartp4,cartp5);
+let Palet3 = cartp1.concat(cartp2,cartp2,cartp3,cartp4,cartp5,cartp6,cartp7,cartp8);
 
 let a = cart1.length + cart2.length;
 let b = a  + cart3.length; 
@@ -107,8 +124,13 @@ let ea = da + cartp2.length;
 let fa = ea + cartp3.length;
 let ga = fa + cartp4.length;
 let ha = ga + cartp5.length;
+let ia = ha + cartp6.length;
+let ja = ia + cartp7.length;
+let ka = ja + cartp8.length;
 
 let stok = Palet1.concat(Palet2,Palet3);
+let repet = document.getElementById('repet')
+console.log(stok.length);
 
 btn.onclick = () => {
     let reslt = stok.indexOf(`${recher.value}`);
@@ -120,7 +142,13 @@ btn.onclick = () => {
     } else {
         out.innerHTML = 'existe \n';
         out.style.backgroundImage = "linear-gradient(0deg,#ffdd1b, red)";
-        // out2.innerHTML = `${reslt}`
+        let stok2 = stok.slice(reslt + 1);
+
+        let reslt2 = stok2.indexOf(`${recher.value}`);
+        console.log(reslt2)
+        if (reslt2 != -1){
+            repet.innerHTML += 'repetition: OK'
+        };
         if(reslt < cart1.length){
             out.innerHTML += 'donne le Palette1, carton 1 '
         } if (reslt > cart1.length && reslt < a ){
@@ -183,15 +211,17 @@ btn.onclick = () => {
             out.innerHTML += 'donne le Palette2'
         } if (reslt >= ca && reslt < ea ){
             out.innerHTML += 'donne le Palette 3, carton 1 '
-         } if (reslt >= ea && reslt < fa){
+        } if (reslt >= ea && reslt < fa){
             out.innerHTML += 'donne le Palette 3, carton 2 '
-         } if (reslt >= fa && reslt < ga){
+        } if (reslt >= fa && reslt < ga){
             out.innerHTML += 'donne le Palette 3, carton 3 '
-         } if (reslt >= ga && reslt < ha){
+        } if (reslt >= ga && reslt < ha){
             out.innerHTML += 'donne le Palette 3, carton 4 '
-         } if (reslt >= ha){
+        } if (reslt >= ha && reslt < ia){
             out.innerHTML += 'donne le Palette 3, carton 5 '
-         }
+        } if (reslt >= ia && reslt < ja ){
+            out.innerHTML += 'donne la Palette 3, carton 6'
+        }
     }
 };
 
